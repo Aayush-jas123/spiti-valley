@@ -134,6 +134,20 @@ body {
   60% { transform: translateY(-7px) translateX(-50%); }
 }
 
+.scroll-down.inline {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  margin: 3rem auto 0 auto;
+  animation: bounce-inline 2s infinite;
+}
+@keyframes bounce-inline {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-15px); }
+  60% { transform: translateY(-7px); }
+}
+
 /* Sections */
 section {
   padding: 5rem 2rem;

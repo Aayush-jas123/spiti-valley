@@ -55,13 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Smooth scroll for chevron
-  const scrollDown = document.querySelector('.scroll-down');
-  if (scrollDown) {
-    scrollDown.addEventListener('click', (e) => {
+  const scrollDowns = document.querySelectorAll('.scroll-down');
+  scrollDowns.forEach(sd => {
+    sd.addEventListener('click', (e) => {
       e.preventDefault();
       window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
     });
-  }
+  });
 
   // Particle System Logic
   initParticles();
