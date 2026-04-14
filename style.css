@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --bg-primary: #0a0f18; /* Very dark blue/slate */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --accent: #fbbf24; /* Golden hour amber */
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Parallax Sections */
+.parallax {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.parallax::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(10,15,24,0.3) 0%, rgba(10,15,24,0.9) 100%);
+  z-index: 1;
+}
+
+#hero {
+  background-image: url('/assets/spiti_hero_1776182264881.png');
+}
+
+#mid-parallax {
+  background-image: url('/assets/kye_monastery_1776182283038.png');
+  height: 50vh;
+}
+
+#lake-parallax {
+  background-image: url('/assets/chandratal_lake_1776182302026.png');
+  height: 50vh;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #fff, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeInDown 1.5s ease-out;
+}
+
+.hero-content h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  animation: fadeInUp 1.5s ease-out 0.5s both;
+}
+
+/* Sections */
+section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--accent);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Glassmorphism Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.glass-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 0.5rem;
+}
+
+.glass-card p, .glass-card ul {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.glass-card ul {
+  padding-left: 1.5rem;
+}
+
+/* Itinerary Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: rgba(255,255,255,0.1);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 80px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 25px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 4px solid var(--bg-primary);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+  z-index: 2;
+}
+
+.timeline-content {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+}
+.timeline-content h4 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+.timeline-content .day-tag {
+  display: inline-block;
+  background: rgba(251, 191, 36, 0.2);
+  color: var(--accent);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Accordion for T&C */
+.accordion-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.accordion {
+  background: var(--card-bg);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  text-align: left;
+  outline: none;
+  font-size: 1.2rem;
+  transition: 0.4s;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion.active, .accordion:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent);
+}
+
+.accordion::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.accordion.active::after {
+  content: "−";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: transparent;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  margin-bottom: 15px;
+}
+.panel-content {
+  padding: 1rem 0;
+  color: var(--text-secondary);
+}
+.panel ul { list-style-position: inside; margin-bottom: 1rem; }
+
+/* Scroll Anim Classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #05080c;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--glass-border);
+}
+footer h2 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 3rem; }
+  .timeline::before { left: 15px; }
+  .timeline-item { padding-left: 50px; }
+  .timeline-item::before { left: 5px; }
+}
