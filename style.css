@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
 
 :root {
-  --bg-primary: #0a0f18; /* Very dark blue/slate */
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --accent: #fbbf24; /* Golden hour amber */
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --bg-primary: #fdfdfd; /* Crisp white */
+  --text-primary: #0f172a; /* Dark slate */
+  --text-secondary: #475569; /* Medium slate */
+  --accent: #e11d48; /* Vibrant Rose / Fuchsia for an elegant pop of color */
+  --card-bg: rgba(255, 255, 255, 0.85); /* Light glassmorphism */
+  --glass-border: rgba(0, 0, 0, 0.05); /* Soft light border */
 }
 
 * {
@@ -17,7 +17,7 @@
 
 body {
   font-family: 'Outfit', sans-serif;
-  background-color: var(--bg-primary);
+  background: linear-gradient(135deg, #fff1f2 0%, #fdf4ff 50%, #f0fdfa 100%);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
@@ -63,7 +63,7 @@ body {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to bottom, rgba(10,15,24,0.3) 0%, rgba(10,15,24,0.9) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(253,244,255,1) 100%);
   z-index: 1;
 }
 
@@ -198,8 +198,8 @@ section {
 .glass-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: white;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 0.5rem;
 }
 
@@ -229,7 +229,7 @@ section {
   top: 0;
   height: 100%;
   width: 2px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .timeline-item {
@@ -246,8 +246,8 @@ section {
   height: 20px;
   border-radius: 50%;
   background: var(--accent);
-  border: 4px solid var(--bg-primary);
-  box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+  border: 4px solid #fff1f2;
+  box-shadow: 0 0 10px rgba(225, 29, 72, 0.4);
   z-index: 2;
 }
 
@@ -260,7 +260,7 @@ section {
   transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 .timeline-item:hover .timeline-content {
-  box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+  box-shadow: 0 0 20px rgba(225, 29, 72, 0.2);
   transform: translateY(-5px);
   border-color: var(--accent);
 }
@@ -271,7 +271,7 @@ section {
 }
 .timeline-content .day-tag {
   display: inline-block;
-  background: rgba(251, 191, 36, 0.2);
+  background: rgba(225, 29, 72, 0.1);
   color: var(--accent);
   padding: 0.2rem 0.8rem;
   border-radius: 20px;
@@ -358,7 +358,7 @@ section {
 footer {
   text-align: center;
   padding: 3rem 2rem;
-  background: #05080c;
+  background: #ffffff;
   color: var(--text-secondary);
   border-top: 1px solid var(--glass-border);
 }
@@ -376,15 +376,16 @@ footer h2 {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   color: white;
+  background: var(--accent);
   padding: 1rem 1.5rem;
   border-radius: 30px;
   font-weight: 600;
   display: flex;
   align-items: center;
   text-decoration: none;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(225, 29, 72, 0.3);
   transition: all 0.3s ease;
   opacity: 0;
   transform: translateY(20px);
@@ -396,10 +397,10 @@ footer h2 {
   pointer-events: auto;
 }
 .floating-cta:hover {
-  background: var(--accent);
-  color: var(--bg-primary);
+  background: #be123c;
+  color: white;
   transform: translateY(-5px);
-  box-shadow: 0 8px 32px rgba(251, 191, 36, 0.5);
+  box-shadow: 0 8px 32px rgba(225, 29, 72, 0.5);
 }
 
 @media (max-width: 768px) {
