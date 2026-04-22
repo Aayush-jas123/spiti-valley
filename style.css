@@ -212,6 +212,47 @@ section {
   padding-left: 1.5rem;
 }
 
+/* Gallery Styles (Privacy Focused) */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.gallery-item {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--glass-border);
+}
+.gallery-img-base {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery-img-blur {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+}
+/* CSS Masks to punch a clear hole over the banners */
+.mask-hole-1 {
+  -webkit-mask-image: radial-gradient(circle at 50% 75%, transparent 15%, black 40%);
+  mask-image: radial-gradient(circle at 50% 75%, transparent 15%, black 40%);
+}
+.mask-hole-2 {
+  -webkit-mask-image: radial-gradient(circle at 55% 65%, transparent 15%, black 40%);
+  mask-image: radial-gradient(circle at 55% 65%, transparent 15%, black 40%);
+}
+.mask-hole-4 {
+  -webkit-mask-image: radial-gradient(circle at 45% 75%, transparent 20%, black 45%);
+  mask-image: radial-gradient(circle at 45% 75%, transparent 20%, black 45%);
+}
+
 /* Itinerary Timeline */
 .timeline {
   display: flex;
