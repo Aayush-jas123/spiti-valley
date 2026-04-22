@@ -85,25 +85,35 @@ function initParticles() {
     constructor() {
       this.x = Math.random() * canvas.width;
       this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 2 + 0.5;
+      this.size = Math.random() * 2 + 1; // Slightly larger for glitter
       this.speedX = Math.random() * 1 - 0.5;
-      this.speedY = Math.random() * 1 + 0.2; // delicate falling
-      this.color = 'rgba(255, 255, 255, 0.2)';
+      this.speedY = Math.random() * -1 - 0.2; // delicate floating upwards 
+      
+      this.opacity = Math.random() * 0.5 + 0.2;
+      this.twinkleDir = Math.random() > 0.5 ? 0.02 : -0.02;
+      
+      // Mix of Gold and Bright White glitter
+      this.colorBase = Math.random() > 0.4 ? '255, 215, 0' : '255, 255, 255'; 
     }
     update() {
       this.x += this.speedX;
       this.y += this.speedY;
 
-      // Wrap around
-      if (this.y > canvas.height) {
-        this.y = 0;
+      // Twinkle effect (pulsing opacity)
+      this.opacity += this.twinkleDir;
+      if (this.opacity >= 0.9) this.twinkleDir = -0.015;
+      if (this.opacity <= 0.1) this.twinkleDir = 0.015;
+
+      // Wrap around to the bottom when reaching the top
+      if (this.y < 0) {
+        this.y = canvas.height;
         this.x = Math.random() * canvas.width;
       }
       if (this.x > canvas.width) this.x = 0;
       if (this.x < 0) this.x = canvas.width;
     }
     draw() {
-      ctx.fillStyle = this.color;
+      ctx.fillStyle = `rgba(${this.colorBase}, ${this.opacity})`;
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
       ctx.fill();
